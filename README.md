@@ -1,5 +1,10 @@
-# Covid19Repository
- 
-We can run the "GettingCovid19Data" jupyter file to extract the real time data of covid-19 cases in each country. Other than total cases, we can get number of recovered cases, number of serious patients, active cases, total number of test performed in every country,total number of test performed per million people an number of death per million people and total deaths
+# Covid19Repository Chatbot
 
-The data is extracted from https://www.worldometers.info/coronavirus/ using beautiful soup library of python. All the real time data will be saved to coviddata.csv file
+
+
+Chatbot provide real time data of country. The number of active cases, serious cases, deaths and total test conducted by country.
+The data is extracted from the link https://www.worldometers.info/coronavirus/#countries using WebScrapping. LoadCovidData file downloads the data from web and store it in data.csv
+
+The Spell corrector is implemented in case th there is spelling error of country name.
+
+The file system databse  is maintained which is used to store the real time data. We store the last time data was updated. If the difference between current time and last update time from database is greater than 15 minutes than only data is loaded again from internet.
