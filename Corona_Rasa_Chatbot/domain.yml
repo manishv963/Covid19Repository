@@ -1,0 +1,88 @@
+actions:
+- action_reset_slot
+- action_showActive
+- action_showAllDetails
+- action_showDeaths
+- action_showRecovered
+- action_showSerious
+- action_showTotalCases
+- action_showTotalTest
+- action_validate_location
+- utter_ask_country
+- utter_ask_howcanhelp
+- utter_ask_more
+- utter_ask_query
+- utter_default
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+entities:
+- query
+- region
+intents:
+- deaths
+- negativeRepsone
+- affirm
+- showAll
+- greet
+- active
+- totalCases
+- serious
+- totalTest
+- specifying_country_name
+- specified_country_name
+- goodbye
+- recovered
+responses:
+  utter_ask_country:
+  - text: text:Please Specify Country Name
+  utter_ask_more:
+  - buttons:
+    - payload: Yes
+      title: Yes
+    - payload: No
+      title: No
+    text: Do you want more details ?
+  utter_default:
+  - text: ' i cannot understand!'
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - buttons:
+    - payload: Total Cases in Country
+      title: Total Cases in Country
+    - payload: activeCases
+      title: Actives  Cases in a Country
+    - payload: deaths
+      title: Total Deaths in a Country
+    - payload: Serious Cases in Country
+      title: Serious Cases
+    - payload: Recovered Cases in Country
+      title: Recovered Cases
+    - payload: totalTest
+      title: Total Test in Country
+    text: Hey! Hope you are doing well I can help you with following options . You
+      can just type the country name to see all the details
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
+slots:
+  askmore:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  query:
+    type: categorical
+    values:
+    - totalcases
+    - deaths
+    - recovered
+    - active
+    - serious
+    - totaltest
+    - showall
+    - __other__
+  region:
+    type: text
